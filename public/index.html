@@ -1,1 +1,189 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mr Laka Tips</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+*{box-sizing:border-box} body{font-family:Arial,sans-serif;margin:0;background:#f2f2f2;color:#111}
+.top{background:#0A8A2F;color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+.top h1{margin:0;font-size:22px} .top span{font-size:17px}
+.lang-bar{background:#fff;padding:8px 16px;display:flex;gap:8px;font-size:14px}
+.lang-bar select{border:none;background:#eee;padding:5px 10px;border-radius:20px;color:#007bff;font-weight:bold}
+.wrap{max-width:520px;margin:auto;padding:12px;padding-bottom:90px}
+.card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.08);margin:10px 0}
+.card h2{font-size:26px;margin:8px 0} .card p{font-size:14px;color:#555;line-height:1.4} .card p b{color:#0A8A2F}
+.tabs{display:flex;gap:10px;margin:14px 0} .tab{flex:1;padding:12px;border-radius:8px;text-align:center;font-weight:bold;cursor:pointer;font-size:15px}
+.tab.active{background:#0A8A2F;color:#fff} .tab.inactive{background:#fff;color:#007bff;border:1px solid #ddd}
+input,select{width:100%;padding:13px;margin:7px 0;border-radius:8px;border:1px solid #ddd;background:#fff;font-size:15px}
+label{font-size:14px;display:block;margin-top:8px}
+.file-box{display:flex;gap:10px;border:1px solid #ddd;border-radius:8px;padding:10px;margin:7px 0;background:#fff}
+.file-box span{color:#007bff;font-weight:bold}
+.btn{width:100%;padding:15px;border:none;border-radius:8px;background:#0A8A2F;color:#fff;font-weight:bold;font-size:18px;cursor:pointer;margin-top:10px}
+.yellow{background:#FFCC00;color:#000} .whatsapp{background:#25D366;color:#fff}
+.disclaimer{font-size:14px;margin-top:12px}
+.hidden{display:none}
+.home-head{background:#0A7A2F;color:#fff;padding:16px;border-radius:0 0 20px 20px;display:flex;justify-content:space-between;align-items:center}
+.home-head h1{margin:0;font-size:30px} .home-head p{margin:0;color:#FFCC00;font-size:14px}
+.home-tabs{display:flex;gap:10px;margin:14px 0}
+.home-tabs div{flex:1;padding:12px;border-radius:20px;text-align:center;font-weight:bold;cursor:pointer}
+.home-tabs .live{background:#FFCC00;color:#000} .home-tabs .up{background:#D6EDD6;color:#111}
+.section-title{text-align:center;color:#777;font-size:12px;font-weight:bold;letter-spacing:1px;margin:10px 0}
+.match{background:#fff;border-radius:16px;overflow:hidden;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.match-top{padding:12px;display:flex;justify-content:space-between;align-items:center}
+.live-pill{background:#0A7A2F;color:#fff;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold}
+.time-pill{background:#FFCC00;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold}
+.teams{display:flex;justify-content:space-between;align-items:center;padding:0 12px}
+.teams b{font-size:15px}
+.score-box{background:#D6EDD6;padding:12px;text-align:center}
+.score{font-size:28px;font-weight:bold} .small{font-size:12px;color:#666}
+.vip-box{background:#111;color:#fff;border-radius:14px;padding:14px;margin:10px 0}
+.vip-box h3{color:#FFCC00;margin:0} .copy-box{background:#222;border:1px dashed #FFCC00;border-radius:10px;padding:10px;margin:8px 0;font-size:14px}
+.badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:bold}
+.won{background:#d4edda;color:#0A7A2F} .lost{background:#f8d7da;color:#c00} .pending{background:#fff3cd;color:#856404}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #eee;display:flex;max-width:520px;margin:auto;border-radius:20px 20px 0 0;overflow:hidden}
+.bottom-nav div{flex:1;text-align:center;padding:10px 0;font-size:11px;cursor:pointer} .bottom-nav div.active{color:#0A8A2F;font-weight:bold}
+.post{border:1px solid #eee;border-radius:12px;padding:10px;margin:8px 0}
+.locked{filter:blur(4px)} .mini-btn{padding:6px 10px;border:none;border-radius:20px;font-weight:bold;cursor:pointer;font-size:12px;margin:2px}
+.progress{height:8px;background:#eee;border-radius:10px;overflow:hidden} .progress div{height:100%;background:#0A7A2F}
+</style>
+</head>
+<body>
+
+<!-- SCREEN 1 - WELCOME -->
+<div id="screen1">
+<div class="top"><h1>Mr Laka Tips</h1><span>Guest</span></div>
+<div class="lang-bar"><b>Language:</b><select><option>English</option><option>French</option><option>Pidgin</option></select></div>
+<div class="wrap"><div class="card">
+<h2>Welcome to Mr Laka Tips</h2>
+<p>Sign up with your Phone Number and Password to view posts, like and comment. VIP members get full access. VIP WhatsApp: <b>07070293524</b></p>
+<div class="tabs"><div class="tab active" id="tabSignup" onclick="switchAuth('signup')">Sign Up</div><div class="tab inactive" id="tabLogin" onclick="switchAuth('login')">Login</div></div>
+<div id="signupForm">
+<input id="username" placeholder="Choose a Username e.g. LakaBoy123">
+<input id="phone" placeholder="Phone Number e.g. 08012345678">
+<input id="pass" type="password" placeholder="Create Password">
+<label>Select Your Country</label><select id="country"><option>Nigeria</option><option>Ghana</option><option>Kenya</option><option>South Africa</option><option>Cameroon</option><option>United Kingdom</option><option>United States</option><option>Other</option></select>
+<label>Select Your Language</label><select id="language"><option>English</option><option>French</option><option>Pidgin</option></select>
+<label>Profile Picture (Optional)</label><div class="file-box" onclick="document.getElementById('profilePic').click()"><span>Choose File</span><span style="color:#111;font-weight:normal" id="fileName">no file selected</span></div><input type="file" id="profilePic" accept="image/*" style="display:none" onchange="document.getElementById('fileName').innerText=this.files[0]?this.files[0].name:'no file selected'">
+<button class="btn" onclick="createAccount()">Create Account</button>
+<p class="disclaimer">18+ only. No guaranteed win. Please bet responsibly.</p>
+</div>
+<div id="loginForm" style="display:none"><input id="loginPhone" placeholder="Phone Number e.g. 08012345678"><input id="loginPass" type="password" placeholder="Password"><button class="btn" onclick="loginAccount()">Login</button><p class="disclaimer">18+ only. No guaranteed win. Please bet responsibly.</p></div>
+</div></div>
+</div>
+
+<!-- SCREEN 2 - HOME AFTER SIGN UP -->
+<div id="screen2" class="hidden">
+<div class="home-head"><div><div style="display:flex;gap:8px;align-items:center"><span style="font-size:32px">⚽</span><div><h1>Kickoff</h1><p>Live & News</p></div></div></div><div style="font-size:22px">🔔 &nbsp; 👤 <span id="userLabel" style="font-size:14px"></span></div></div>
+<div class="wrap">
+<div class="vip-box"><h3>VIP MEMBERSHIP - <span id="vipStatus">FREE MEMBER</span></h3><p style="font-size:13px">Weekly N3,000 | Monthly N10,000 | OPay 7070293524 - SHOYOMBO OLAYINKA MICHEAL</p><div class="copy-box">OPay<br>7070293524 - SHOYOMBO OLAYINKA MICHEAL<br><button class="btn yellow" style="padding:8px" onclick="copyAcct()">Copy Account Number</button></div><a href="https://wa.me/2347070293524?text=Hello%20MrLaka%2C%20I%20want%20to%20join%20VIP" target="_blank" style="text-decoration:none"><button class="btn whatsapp">Chat MrLaka on WhatsApp - 07070293524</button></a></div>
+
+<div class="home-tabs"><div class="live" id="btnLive" onclick="showHomeTab('live')">Live Matches</div><div class="up" id="btnUp" onclick="showHomeTab('upcoming')">Upcoming</div></div>
+
+<div class="card" id="yesterdayCard"><h3 style="margin:0">Yesterday Results & BetSlip - Auto</h3><div style="display:flex;gap:10px;margin:10px 0"><div style="flex:1;background:#e8f5e9;border-radius:10px;padding:10px;text-align:center"><b style="font-size:22px;color:#0A7A2F" id="wonCount">0</b><br><span class="badge won">WON</span></div><div style="flex:1;background:#fdecea;border-radius:10px;padding:10px;text-align:center"><b style="font-size:22px;color:#c00" id="lostCount">0</b><br><span class="badge lost">LOST</span></div><div style="flex:1;background:#fff8e1;border-radius:10px;padding:10px;text-align:center"><b style="font-size:22px" id="totalCount">0</b><br><span class="small">TOTAL BETSLIP</span></div></div><div class="progress"><div id="winBar" style="width:0%"></div></div><p class="small" id="winText">Win Rate: 0%</p><div id="yesterdayList"></div><p class="small" id="lastUpdate">Last update: -</p></div>
+
+<div id="liveSection"><div class="section-title">LIVE NOW • <span id="liveDate"></span></div><div id="liveMatches"></div></div>
+<div id="upcomingSection" class="hidden"><div class="section-title">UPCOMING • TODAY</div><div id="upcomingMatches"></div></div>
+
+<div id="matchesTab" class="hidden"><h3>Matches</h3><p class="small">Live plus Upcoming - Real matches. Finished matches are removed automatically and moved to Yesterday.</p><div id="allMatches"></div></div>
+<div id="newsTab" class="hidden"><h3>News</h3><div id="newsList"></div></div>
+<div id="followTab" class="hidden"><h3>Follow</h3><div class="card"><b>MrLaka Official</b><br><button class="btn" onclick="alert('Following MrLaka')">Follow</button></div><div class="card"><b>WhatsApp Channel</b><br><a href="https://wa.me/2347070293524" target="_blank"><button class="btn whatsapp">Join WhatsApp - 07070293524</button></a></div></div>
+<div id="moreTab" class="hidden"><h3>More</h3><div class="card"><b>About Mr Laka Tips</b><p>18+ only. No guaranteed win. Please bet responsibly.</p><p>VIP WhatsApp: 07070293524</p><p>OPay: 7070293524 - SHOYOMBO OLAYINKA MICHEAL</p></div></div>
+<div id="postsTab" class="hidden"><h3>Posts - Mr Laka Posts</h3><p class="small">Free posts are open. VIP posts are locked until you join VIP.</p><div id="postsList"></div>
+<div class="card" id="adminPostBox" style="display:none;border:2px solid #0A7A2F"><h4 style="color:#0A7A2F;margin:0">Admin - Post New Tip</h4><input id="postMatch" placeholder="Match - Man City vs Arsenal"><input id="postTip" placeholder="Tip - Home Win"><select id="postType"><option value="free">Free Post</option><option value="vip">VIP Post</option></select><select id="postResult"><option value="pending">Pending</option><option value="won">WON</option><option value="lost">LOST</option></select><button class="btn" onclick="addPost()">Post Tip</button></div>
+<div class="card" id="adminLiveBox" style="display:none;border:2px solid #c00"><h4 style="color:#c00;margin:0">Admin - Live Tracker Backup</h4><p class="small">Only if the real API does not show a game. Add a manual game here.</p><input id="liveHome" placeholder="Home Team"><input id="liveAway" placeholder="Away Team"><input id="liveScoreInput" placeholder="Score e.g. 2-1"><input id="liveMinuteInput" placeholder="Minute e.g. 72'"><button class="btn" onclick="addLiveMatch()">Start Live Match (Manual)</button></div>
+</div>
+
+</div>
+<div class="bottom-nav">
+<div id="navHome" class="active" onclick="showMain('home')">🏠<br>Home</div>
+<div id="navMatches" onclick="showMain('matches')">⚽<br>Matches</div>
+<div id="navNews" onclick="showMain('news')">📰<br>News</div>
+<div id="navFollow" onclick="showMain('follow')">🔔<br>Follow</div>
+<div id="navPosts" onclick="showMain('posts')">📝<br>Posts</div>
+<div id="navMore" onclick="showMain('more')">☰<br>More</div>
+</div>
+</div>
+
+<script>
+let posts=[{match:'Man City vs Arsenal',tip:'Home Win',conf:'78%',type:'free',time:'Today 5:30 PM',result:'pending'},{match:'Chelsea vs Liverpool',tip:'Over 1.5 Goals + Home Win',conf:'82%',type:'vip',time:'Today 8:00 PM',result:'pending'}];
+let liveGames=[]; let upcomingGames=[]; let yesterdayGames=[]; let newsItems=[{title:'Man City striker fit for Arsenal clash',time:'2 hours ago',body:'Head coach confirms striker is fit.'},{title:'Arsenal defender suspended',time:'5 hours ago',body:'Defender will miss next game.'}];
+let isAdmin=false; let isVip=false; let currentUser=null;
+function switchAuth(m){document.getElementById('tabSignup').className=m==='signup'?'tab active':'tab inactive';document.getElementById('tabLogin').className=m==='login'?'tab active':'tab inactive';document.getElementById('signupForm').style.display=m==='signup'?'block':'none';document.getElementById('loginForm').style.display=m==='login'?'block':'none';}
+function copyAcct(){navigator.clipboard.writeText('7070293524').then(()=>alert('Copied: 7070293524 - OPay - SHOYOMBO OLAYINKA MICHEAL'));}
+function createAccount(){let u=document.getElementById('username').value.trim();let p=document.getElementById('phone').value.trim();let pw=document.getElementById('pass').value.trim();if(!u||!p||!pw){alert('Fill Username, Phone and Password');return;}if(p==='07070293524'&&pw==='Laka2026'){isAdmin=true;isVip=true;}goHome(u,p);}
+function loginAccount(){let p=document.getElementById('loginPhone').value.trim();let pw=document.getElementById('loginPass').value.trim();if(!p||!pw){alert('Enter Phone and Password');return;}if(p==='07070293524'&&pw==='Laka2026'){isAdmin=true;isVip=true;}goHome(p,p);}
+function goHome(name,phone){currentUser={name:name,phone:phone};document.getElementById('screen1').classList.add('hidden');document.getElementById('screen2').classList.remove('hidden');document.getElementById('userLabel').innerText=name;if(isAdmin){document.getElementById('vipStatus').innerText='ADMIN - VIP';document.getElementById('adminPostBox').style.display='block';document.getElementById('adminLiveBox').style.display='block';}document.getElementById('liveDate').innerText=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short'}).toUpperCase();renderAll();fetchAllReal();}
+function showHomeTab(t){document.getElementById('btnLive').className=t==='live'?'live':'up';document.getElementById('btnUp').className=t==='upcoming'?'live':'up';document.getElementById('liveSection').classList.toggle('hidden',t!=='live');document.getElementById('upcomingSection').classList.toggle('hidden',t!=='upcoming');document.getElementById('matchesTab').classList.add('hidden');document.getElementById('newsTab').classList.add('hidden');document.getElementById('followTab').classList.add('hidden');document.getElementById('postsTab').classList.add('hidden');document.getElementById('moreTab').classList.add('hidden');}
+function showMain(tab){document.querySelectorAll('.bottom-nav div').forEach(d=>d.classList.remove('active'));let map={home:'navHome',matches:'navMatches',news:'navNews',follow:'navFollow',posts:'navPosts',more:'navMore'};document.getElementById(map[tab]).classList.add('active');document.getElementById('liveSection').classList.toggle('hidden',tab!=='home');document.getElementById('upcomingSection').classList.add('hidden');document.getElementById('matchesTab').classList.toggle('hidden',tab!=='matches');document.getElementById('newsTab').classList.toggle('hidden',tab!=='news');document.getElementById('followTab').classList.toggle('hidden',tab!=='follow');document.getElementById('postsTab').classList.toggle('hidden',tab!=='posts');document.getElementById('moreTab').classList.toggle('hidden',tab!=='more');window.scrollTo(0,0);}
+
+function fmtDate(d){return d.toISOString().split('T')[0];}
+async function fetchAllReal(){ await fetchRealLive(); await fetchRealUpcoming(); await fetchYesterday(); }
+async function fetchRealLive(){
+  try{
+    let res=await fetch('https://www.thesportsdb.com/api/v1/json/3/livescore.php?s=Soccer');
+    let data=await res.json();
+    if(data && data.teams){
+      let finished=[]; let live=[];
+      data.teams.forEach(t=>{
+        let status=(t.strStatus||'').toLowerCase(); let prog=t.strProgress||t.strStatus||'LIVE';
+        if(status.includes('ft')||prog.includes('Full')||status.includes('finished')){
+          finished.push({home:t.strHomeTeam,away:t.strAwayTeam,score:t.intHomeScore+' - '+t.intAwayScore,result:'pending',tip:'Live Match',league:t.strLeague});
+        } else {
+          live.push({home:t.strHomeTeam,away:t.strAwayTeam,score:t.intHomeScore+' - '+t.intAwayScore,minute:prog,league:t.strLeague,stadium:t.strVenue||'',tracker:'Live - '+prog+' - '+t.strLeague+' - Updating every 60 seconds. Last update: '+new Date().toLocaleTimeString(),id:t.idEvent});
+        }
+      });
+      let manual = liveGames.filter(g=>g.manual);
+      liveGames = [...live, ...manual];
+      finished.forEach(f=>{ if(!yesterdayGames.find(y=>y.home===f.home && y.away===f.away)){ yesterdayGames.unshift(f); } });
+      document.getElementById('lastUpdate').innerText='Last update: '+new Date().toLocaleTimeString()+' - Live score auto with real time';
+      renderAll();
+    }
+  }catch(e){ console.log('Live API failed, using manual',e); renderAll(); }
+}
+async function fetchRealUpcoming(){
+  try{
+    let today=fmtDate(new Date()); let res=await fetch('https://www.thesportsdb.com/api/v1/json/3/eventsday.php?d='+today+'&s=Soccer');
+    let data=await res.json();
+    if(data && data.events){
+      upcomingGames=data.events.filter(ev=>ev.strStatus!=='Match Finished').slice(0,12).map(ev=>({home:ev.strHomeTeam,away:ev.strAwayTeam,time:(ev.strTime||'').slice(0,5)||ev.dateEvent,league:ev.strLeague,stadium:ev.strVenue||''}));
+      renderAll();
+    }
+  }catch(e){}
+}
+async function fetchYesterday(){
+  try{
+    let y=new Date(); y.setDate(y.getDate()-1); let d=fmtDate(y);
+    let res=await fetch('https://www.thesportsdb.com/api/v1/json/3/eventsday.php?d='+d+'&s=Soccer');
+    let data=await res.json();
+    if(data && data.events){
+      let realY=data.events.filter(ev=>ev.strStatus==='Match Finished').slice(0,8).map(ev=>({home:ev.strHomeTeam,away:ev.strAwayTeam,score:ev.intHomeScore+' - '+ev.intAwayScore,result:'pending',tip:ev.strLeague,league:ev.strLeague}));
+      realY.forEach(r=>{ if(!yesterdayGames.find(y2=>y2.home===r.home && y2.away===r.away)){ yesterdayGames.push(r); } });
+      renderAll();
+    }
+  }catch(e){}
+}
+setInterval(fetchAllReal, 60000);
+
+function updateYesterday(){
+  let won=yesterdayGames.filter(g=>g.result==='won').length; let lost=yesterdayGames.filter(g=>g.result==='lost').length;
+  let total=won+lost; document.getElementById('wonCount').innerText=won; document.getElementById('lostCount').innerText=lost; document.getElementById('totalCount').innerText=total||yesterdayGames.length;
+  let rate=total===0?0:Math.round(won/total*100); document.getElementById('winBar').style.width=rate+'%'; document.getElementById('winText').innerText='Win Rate: '+rate+'% - '+won+' Won / '+lost+' Lost';
+  document.getElementById('yesterdayList').innerHTML=yesterdayGames.map(g=>'<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee"><span>'+g.home+' vs '+g.away+' - '+(g.score||'')+'<br><span class="small">Tip: '+(g.tip||'')+'</span></span><span class="badge '+(g.result==='won'?'won':g.result==='lost'?'lost':'pending')+'">'+(g.result==='won'?'WON ✓':g.result==='lost'?'LOST ✗':'FINISHED')+'</span></div>').join('') || '<p class="small">Yesterday results will show here automatically when games finish.</p>';
+}
+function addPost(){let m=document.getElementById('postMatch').value.trim();let t=document.getElementById('postTip').value.trim();let ty=document.getElementById('postType').value;let res=document.getElementById('postResult').value;if(!m||!t){alert('Enter Match and Tip');return;}if(res==='won'||res==='lost'){let p=m.split(' vs ');yesterdayGames.unshift({home:p[0]||m,away:p[1]||'',score:'',result:res,tip:t});updateYesterday();}else{posts.unshift({match:m,tip:t,conf:'80%',type:ty,time:'Just now',result:'pending'});}renderAll();alert('Posted!');}
+function markResult(i,res){let p=posts[i];let sc=prompt('Final Score for '+p.match,'2-1');if(sc===null)return;let parts=p.match.split(' vs ');yesterdayGames.unshift({home:parts[0]||p.match,away:parts[1]||'',score:sc,result:res,tip:p.tip});posts.splice(i,1);renderAll();alert('Moved to Yesterday and BetSlip updated');}
+function addLiveMatch(){let h=document.getElementById('liveHome').value.trim();let a=document.getElementById('liveAway').value.trim();let s=document.getElementById('liveScoreInput').value.trim()||'0 - 0';let mi=document.getElementById('liveMinuteInput').value.trim()||"1'";if(!h||!a){alert('Enter Home and Away');return;}liveGames.unshift({home:h,away:a,score:s,minute:mi,league:'Manual',stadium:'',tracker:'Manual live - Admin is updating it',manual:true});renderAll();}
+function watchTracker(i){let el=document.getElementById('tracker'+i);el.style.display=el.style.display==='none'?'block':'none';}
+function renderAll(){
+  updateYesterday();
+  document.getElementById('liveMatches').innerHTML=liveGames.length===0?'<div class="card"><p>No live games right now. Real live games will show here automatically when they start.</p></div>':liveGames.map((g,i)=>'<div class="match"><div class="match-top"><span class="live-pill">● LIVE '+g.minute+'</span><span class="small">'+g.league+'</span></div><div class="teams"><b>'+g.home+'</b><span style="color:#C9A227;font-weight:bold">VS</span><b>'+g.away+'</b></div><div class="score-box"><div class="score">'+g.score+'</div><div class="small">🏟️ '+(g.stadium||'')+' • '+g.league+'</div></div><div style="padding:10px"><b>Match Tracker:</b><br><span class="small">'+g.tracker+'</span><br><button class="btn" style="padding:10px;margin-top:8px" onclick="watchTracker('+i+')">Watch Match Tracker</button><p class="small" id="tracker'+i+'" style="display:none">Tracker: '+g.home+' vs '+g.away+' - '+g.minute+' - Score '+g.score+' - '+g.tracker+'</p></div></div>').join('');
+  document.getElementById('upcomingMatches').innerHTML=upcomingGames.length===0?'<div class="card"><p>Loading real upcoming matches...</p></div>':upcomingGames.map(g=>'<div class="match"><div class="match-top"><span></span><span class="time-pill">'+g.time+'</span></div><div class="teams"><b>'+g.home+'</b><span style="color:#C9A227;font-weight:bold">VS</span><b>'+g.away+'</b></div><div class="score-box"><div class="small">'+g.league+' • '+(g.stadium||'')+'</div></div></div>').join('');
+  document.getElementById('allMatches').innerHTML=document.getElementById('liveMatches').innerHTML+document.getElementById('upcomingMatches').innerHTML;
+  document.getElementById('newsList').innerHTML=newsItems.map(n=>'<div class="card"><b>'+n.title+'</b><br><span class="small">'+n.time+'</span><p>'+n.body+'</p></div>').join('');
+  document.getElementById('postsList').innerHTML=posts.map((p,i)=>{let ab=isAdmin?'<br><button class="mini-btn" style="background:#0A7A2F;color:#fff" onclick="markResult('+i+',\'won\')">Mark WON</button><button class="mini-btn" style="background:#c00;color:#fff" onclick="markResult('+i+',\'lost\')">Mark LOST</button>':'';if(p.type==='vip'&&!isVip){return '<div class="post" style="background:#fff8e1"><b>VIP POST • LOCKED</b><br><b>'+p.match+'</b><br><div class="locked">Tip: '+p.tip+'</div><button class="btn yellow" onclick="showMain(\'home\')">Join VIP - N3,000 / N10,000</button>'+ab+'</div>';}return '<div class="post"><b>'+(p.type==='vip'?'VIP POST':'FREE POST')+' • '+p.time+'</b><br><b>'+p.match+'</b><br>Tip: '+p.tip+'<br><span class="badge '+(p.result==='won'?'won':p.result==='lost'?'lost':'pending')+'">'+p.result.toUpperCase()+'</span>'+ab+'</div>';}).join('');
+}
+</script>
+</body>
+</html>
